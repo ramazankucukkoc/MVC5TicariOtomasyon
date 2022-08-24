@@ -1,0 +1,64 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar;
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+@using(Html.BeginForm("Index", "Urun", FormMethod.Get)){
+
+<p>
+    Ürün Adı : @Html.TextBox("p")
+    <input class="btn btn-primary" type="submit" value="Ara" />
+</p>
+
+}
+
+<h2>ÜRÜNLER</h2>
+<table class="table table-bordered">
+    <tr> 
+        <th>ÜRÜN</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYAT</th>
+        <th>SATIŞ FİYAT</th>
+        <th>KATEGORİ</th>   
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>Satış Yap</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.UrunAd</td>
+    <td>@item.Marka</td>
+    <td>@item.Stok</td>
+    <td>@item.AlisFiyat ₺</td>
+    <td>@item.SatisFiyat ₺</td>
+    <td>@item.Kategori.KategoriAd</td>
+    <td>
+        <a href="/Urun/UrunSil/@item.Urunid" class="btn btn-outline-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+            </svg> SİL
+        </a>
+    </td>
+    <td>
+        <a href="/Urun/UrunGetir/@item.Urunid" class="btn btn-outline-success">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+            </svg> Güncelle
+        </a>
+    </td>
+    <td>
+        <a href="/Urun/SatisYap/@item.Urunid" class="btn btn-default"style="background-color:burlywood">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
+            </svg> Satış Yap
+        </a>
+    </td>
+</tr>
+    }
+</table>
+<a href="/Urun/YeniUrun" class="btn btn-outline-warning">Yeni Ürün Ekle</a>

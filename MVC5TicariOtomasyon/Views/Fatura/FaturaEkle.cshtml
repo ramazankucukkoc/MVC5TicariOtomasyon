@@ -1,0 +1,38 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 class="text-center text-info">Fatura Ekleme Sayfası </h2>
+
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Fatura Seri No", new { @class = "text-secondary" })
+    @Html.TextAreaFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fatura Sıra No", new { @class = "text-primary" })
+    @Html.TextAreaFor(x => x.FaturaSıraNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih", new { @class = "text-info" })
+    @Html.TextAreaFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Saat", new { @class = "text-dark" })
+    @Html.TextAreaFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+    @Html.Label("Vergi Dairesi", new { @class = "text-info" })
+    @Html.TextAreaFor(x => x.VergiDairesi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim Eden", new { @class = "text-warning" })
+    @Html.TextAreaFor(x => x.TeslimEden, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim Alan", new { @class = "text-success" })
+    @Html.TextAreaFor(x => x.TeslimAlan, new { @class = "form-control" })
+    <br />
+    @Html.Label("Toplam", new { @class = "text-dark" })
+    @Html.TextAreaFor(x => x.Toplam, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>

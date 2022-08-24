@@ -1,0 +1,45 @@
+﻿@using MVC5TicariOtomasyon.Models.Siniflar
+@model List<Mesajlar>
+@foreach (var item in Model)
+{
+    <div class="timeline timeline-inverse">
+
+        <!-- timeline time label -->
+
+        <div class="time-label">
+
+            <span class="bg-warning">
+
+                @item.Tarih
+
+            </span>
+
+        </div>
+        <div>
+
+            <i class="fas fa-envelope bg-primary"></i>
+
+            <div class="timeline-item">
+
+                <span class="time"><i class="far fa-clock"></i> 12:05</span>
+
+                <h3 class="timeline-header"><a href="#">@item.Konu</a></h3>
+
+                <div class="timeline-body">
+                    @item.Icerik
+                </div>
+
+                <div class="timeline-footer">
+
+                    <a href="#" class="btn btn-primary btn-sm">Read more</a>
+
+                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+}

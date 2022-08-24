@@ -1,0 +1,29 @@
+﻿@model MVC5TicariOtomasyon.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 class="text-center text-danger">Yeni Kalem Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Açıklama", new { @class = "text-secondary" })
+    @Html.TextAreaFor(x=>x.Aciklama, new { @class = "form-control" })
+    <br />
+    @Html.Label("Miktar", new { @class = "text-primary" })
+    @Html.TextAreaFor(x => x.Miktar, new { @class = "form-control" })
+    <br />
+    @Html.Label("Birim Fiyat", new { @class = "text-info" })
+    @Html.TextAreaFor(x => x.BirimFiyat, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Tutar", new { @class = "text-dark" })
+    @Html.TextAreaFor(x => x.Tutar, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fatura ID", new { @class = "text-info" })
+    @Html.TextAreaFor(x => x.Faturaid, new { @class = "form-control" }) 
+    <br />
+   
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
